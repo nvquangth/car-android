@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.bt.base.model.Result"/>
+
+        <variable
+            name="callback"
+            type="com.bt.base.model.RetryCallback"/>
+
+        <import type="com.bt.base.model.Result" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="@{result == null ? View.GONE : result instanceof Result.Success ? View.GONE : View.VISIBLE}">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_64"
+            android:text="Loading data failed, please try again!"
+            android:textColor="@android:color/black"
+            android:visibility="@{result instanceof Result.Loading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Loading data failed, please try again!" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRetry"
+            style="?attr/materialButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:onClick="@{() -> callback.retry()}"
+            android:text="@string/retry"
+            android:visibility="@{result instanceof Result.Loading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="@+id/textMessage"
+            app:layout_constraintStart_toStartOf="@+id/textMessage"
+            app:layout_constraintTop_toBottomOf="@+id/textMessage" />
+
+        <!--        <ProgressBar-->
+        <!--            android:id="@+id/progressLoading"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:visibility="@{result instanceof Result.Loading ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
