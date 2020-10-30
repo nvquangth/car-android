@@ -148,4 +148,7 @@ dependencies {
 
     // Splash Victor
     implementation(Libs.victor)
+
+    // Drawer Material
+    implementation(Libs.drawerMaterial)
 }

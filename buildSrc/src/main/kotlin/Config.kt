@@ -121,6 +121,10 @@ object Versions {
 
     // Splash Victor
     const val victor = "1.0.4"
+
+    // Drawer Layout Material Design
+    // https://github.com/mikepenz/MaterialDrawer
+    const val drawerMaterial = "8.1.8"
 }
 
 object GradlePlugins {
@@ -256,6 +260,9 @@ object Libs {
 
     // Splash Victor
     const val victor = "com.victor:lib:${Versions.victor}"
+
+    // Drawer Material
+    const val drawerMaterial = "com.mikepenz:materialdrawer-nav:${Versions.drawerMaterial}"
 }
 
 object Modules {
