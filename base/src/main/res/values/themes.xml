@@ -6,6 +6,11 @@
 
     </style>
 
+    <style name="Theme.MyApp.NoActionBar" parent="Base.Theme.MyApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Theme.MyApp.COLOR1" parent="Base.Theme.MyApp">
 
         <!-- colorPrimary color is the color displayed most frequently across your app's screens and components, such as: -->
