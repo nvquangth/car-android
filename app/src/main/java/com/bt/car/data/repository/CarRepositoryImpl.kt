@@ -7,7 +7,21 @@ import javax.inject.Inject
 
 class CarRepositoryImpl @Inject constructor(
     private val dao: CarDao
-): CarRepository {
+) : CarRepository {
 
-    override fun getCars(): Flow<List<Car>> = dao.getCars()
+    override fun getCars(): Flow<List<Car>> = dao.getAllCar()
+
+    override fun getAllMaker(): Flow<List<String>> = dao.getAllMaker()
+
+    override fun getTotalMaker(): Int = dao.getTotalMaker()
+
+    override fun getModelByMaker(maker: String): Flow<List<String>> = dao.getModelByMaker(maker)
+
+    override fun getTotalModelByMaker(maker: String): Int = dao.getTotalModelByMaker(maker)
+
+    override fun findMaker(q: String): Flow<List<String>> = dao.findMaker(q)
+
+    override fun findModel(q: String): Flow<List<String>> = dao.findModel(q)
+
+    override fun find(q: String): Flow<List<Car>> = dao.find(q)
 }

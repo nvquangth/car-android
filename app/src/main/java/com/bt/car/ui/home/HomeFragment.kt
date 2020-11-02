@@ -21,9 +21,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
         with(viewModel) {
 
-            cars.observe(viewLifecycleOwner, Observer {
-                Log.d("quangnvxx", "onViewCreated: ${it.size}")
-            })
+            cars.observe(
+                viewLifecycleOwner,
+                Observer {
+                    Log.d("quangnvxx", "onViewCreated: ${it.size}")
+                }
+            )
         }
     }
 }

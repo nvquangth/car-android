@@ -9,5 +9,26 @@ import kotlinx.coroutines.flow.Flow
 interface CarDao {
 
     @Query("SELECT * FROM car")
-    fun getCars(): Flow<List<Car>>
+    fun getAllCar(): Flow<List<Car>>
+
+    @Query("SELECT DISTINCT Make FROM car")
+    fun getAllMaker(): Flow<List<String>>
+
+    @Query("SELECT COUNT(DISTINCT Make) FROM car")
+    fun getTotalMaker(): Int
+
+    @Query("SELECT DISTINCT Model FROM car WHERE Make = :maker")
+    fun getModelByMaker(maker: String): Flow<List<String>>
+
+    @Query("SELECT COUNT(DISTINCT Model) FROM car WHERE Make = :maker")
+    fun getTotalModelByMaker(maker: String): Int
+
+    @Query("SELECT DISTINCT Make FROM car WHERE Make LIKE '%' || :q || '%'")
+    fun findMaker(q: String): Flow<List<String>>
+
+    @Query("SELECT DISTINCT Model FROM car WHERE Model LIKE '%' || :q || '%'")
+    fun findModel(q: String): Flow<List<String>>
+
+    @Query("SELECT * FROM car WHERE Make LIKE '%' || :q || '%' OR Model LIKE '%' || :q || '%'")
+    fun find(q: String): Flow<List<Car>>
 }
