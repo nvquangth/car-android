@@ -2,7 +2,8 @@ package com.bt.car.data.repository
 
 import com.bt.car.data.db.CarDao
 import com.bt.car.data.model.Car
-import kotlinx.coroutines.flow.Flow
+import com.bt.car.data.model.MakerItem
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class CarRepositoryImpl @Inject constructor(
@@ -11,11 +12,11 @@ class CarRepositoryImpl @Inject constructor(
 
     override fun getCars(): Flow<List<Car>> = dao.getAllCar()
 
-    override fun getAllMaker(): Flow<List<String>> = dao.getAllMaker()
+    override suspend fun getAllMaker(): List<String> = dao.getAllMaker()
 
     override fun getTotalMaker(): Int = dao.getTotalMaker()
 
-    override fun getModelByMaker(maker: String): Flow<List<String>> = dao.getModelByMaker(maker)
+    override suspend fun getModelByMaker(maker: String): List<String> = dao.getModelByMaker(maker)
 
     override fun getTotalModelByMaker(maker: String): Int = dao.getTotalModelByMaker(maker)
 
@@ -24,4 +25,12 @@ class CarRepositoryImpl @Inject constructor(
     override fun findModel(q: String): Flow<List<String>> = dao.findModel(q)
 
     override fun find(q: String): Flow<List<Car>> = dao.find(q)
+
+    override suspend fun getAllMakerItem(): List<MakerItem> {
+        val data = arrayListOf<MakerItem>()
+        dao.getAllMaker().forEach {maker ->
+            data.add(MakerItem(name = maker, models = dao.getModelByMaker(maker)))
+        }
+        return data
+    }
 }

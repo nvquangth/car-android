@@ -1,17 +1,18 @@
 package com.bt.car.data.repository
 
 import com.bt.car.data.model.Car
+import com.bt.car.data.model.MakerItem
 import kotlinx.coroutines.flow.Flow
 
 interface CarRepository {
 
     fun getCars(): Flow<List<Car>>
 
-    fun getAllMaker(): Flow<List<String>>
+    suspend fun getAllMaker(): List<String>
 
     fun getTotalMaker(): Int
 
-    fun getModelByMaker(maker: String): Flow<List<String>>
+    suspend fun getModelByMaker(maker: String): List<String>
 
     fun getTotalModelByMaker(maker: String): Int
 
@@ -20,4 +21,6 @@ interface CarRepository {
     fun findModel(q: String): Flow<List<String>>
 
     fun find(q: String): Flow<List<Car>>
+
+    suspend fun getAllMakerItem(): List<MakerItem>
 }
