@@ -6,23 +6,30 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.bt.car.ui.home.HomeViewModel" />
+            name="item"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/dp_48"
+        android:background="?attr/selectableItemBackground">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerMaker"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textModel"
+            style="?attr/textAppearanceBody1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{item}"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_maker" />
+            tools:text="Lexus Lx 550" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

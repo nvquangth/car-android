@@ -12,13 +12,13 @@ interface CarDao {
     fun getAllCar(): Flow<List<Car>>
 
     @Query("SELECT DISTINCT Make FROM car")
-    fun getAllMaker(): Flow<List<String>>
+    suspend fun getAllMaker(): List<String>
 
     @Query("SELECT COUNT(DISTINCT Make) FROM car")
     fun getTotalMaker(): Int
 
     @Query("SELECT DISTINCT Model FROM car WHERE Make = :maker")
-    fun getModelByMaker(maker: String): Flow<List<String>>
+    suspend fun getModelByMaker(maker: String): List<String>
 
     @Query("SELECT COUNT(DISTINCT Model) FROM car WHERE Make = :maker")
     fun getTotalModelByMaker(maker: String): Int
