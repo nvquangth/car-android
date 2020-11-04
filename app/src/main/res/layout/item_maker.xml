@@ -21,14 +21,14 @@
             android:layout_height="match_parent">
 
             <View
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@android:color/darker_gray"
                 android:id="@+id/viewBgHeader"
-                android:visibility="gone"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dp_64" />
+                android:layout_height="@dimen/dp_64"
+                android:background="@android:color/darker_gray"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageLogo"
