@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun setupMakers() {
         adapter = MakerAdapter(::onItemModelClick)
         recyclerMaker.adapter = adapter
-        recyclerMaker.addItemDecoration(MarginItemDecoration(context?.resources?.getDimension(R.dimen.dp_10)?.toInt() ?: 0))
+        recyclerMaker.addItemDecoration(MarginItemDecoration(context?.resources?.getDimension(R.dimen.dp_8)?.toInt() ?: 0))
     }
 
     private fun onItemModelClick(model: String) {

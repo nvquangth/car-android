@@ -64,7 +64,7 @@ class MakerAdapter(
                 viewBgHeader.visibility = View.VISIBLE
                 cardMaker.isEnabled = false
             } else {
-                buttonExpand.setImageResource(R.drawable.ic_baseline_expand_less_24)
+                buttonExpand.setImageResource(R.drawable.ic_baseline_expand_more_24)
                 recyclerModel.visibility = View.GONE
                 viewBgHeader.visibility = View.GONE
                 cardMaker.isEnabled = true
