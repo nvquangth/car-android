@@ -7,6 +7,7 @@ import com.bt.car.R
 import com.bt.car.data.model.MakerItem
 import com.bt.car.databinding.ItemMakerBinding
 import com.bt.car.databinding.ItemModelBinding
+import com.bt.car.extension.loadCircleImageWithResource
 import com.bt.car.utils.GlideApp
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
@@ -70,10 +71,7 @@ class MakerAdapter(
                 cardMaker.isEnabled = true
             }
 
-            GlideApp.with(imageLogo)
-                .load(R.drawable.icon_bmw)
-                .apply(RequestOptions.bitmapTransform(CircleCrop()))
-                .into(imageLogo)
+            imageLogo.loadCircleImageWithResource(R.drawable.icon_bmw)
         }
     }
 

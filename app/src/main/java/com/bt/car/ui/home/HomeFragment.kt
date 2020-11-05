@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.bt.base.ui.BaseFragment
 import com.bt.base.uikit.recycler.MarginItemDecoration
 import com.bt.car.R
@@ -39,5 +40,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun onItemModelClick(model: String) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCarDetailFragment())
     }
 }

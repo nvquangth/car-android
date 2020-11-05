@@ -9,5 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.bt.car.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_carDetailFragment"
+            app:destination="@id/carDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/carDetailFragment"
+        android:name="com.bt.car.ui.cardetail.CarDetailFragment"
+        android:label="CarDetailFragment"
+        tools:layout="@layout/fragment_car_detail" />
 </navigation>

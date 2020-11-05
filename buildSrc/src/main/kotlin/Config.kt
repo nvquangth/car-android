@@ -125,6 +125,10 @@ object Versions {
     // Drawer Layout Material Design
     // https://github.com/mikepenz/MaterialDrawer
     const val drawerMaterial = "8.1.8"
+
+    // ViewPager Indicator
+    // https://github.com/zhpanvip/viewpagerindicator
+    const val pagerIndicator = "1.0.6"
 }
 
 object GradlePlugins {
@@ -263,6 +267,9 @@ object Libs {
 
     // Drawer Material
     const val drawerMaterial = "com.mikepenz:materialdrawer-nav:${Versions.drawerMaterial}"
+
+    // ViewPager Indicator
+    const val pagerIndicator = "com.github.zhpanvip:viewpagerindicator:${Versions.pagerIndicator}"
 }
 
 object Modules {

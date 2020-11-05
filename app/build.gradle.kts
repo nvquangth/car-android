@@ -146,9 +146,9 @@ dependencies {
     implementation(Libs.firebase)
     implementation(Libs.firebaseConfig)
 
-    // Splash Victor
-    implementation(Libs.victor)
-
     // Drawer Material
     implementation(Libs.drawerMaterial)
+
+    // ViewPager Indicator
+    implementation(Libs.pagerIndicator)
 }
