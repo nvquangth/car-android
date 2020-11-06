@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,11 +19,11 @@
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
-            app:navigationIcon="@drawable/ic_baseline_close_24"
             android:backgroundTint="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_close_24" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pagerPhoto"
@@ -40,5 +41,39 @@
             app:layout_constraintBottom_toBottomOf="@+id/pagerPhoto"
             app:layout_constraintEnd_toEndOf="@+id/pagerPhoto"
             app:layout_constraintStart_toStartOf="@+id/pagerPhoto" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerModel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pagerPhoto" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:alpha="0.3"
+            android:background="?colorSecondary"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerModel"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerModel"
+            app:layout_constraintStart_toStartOf="@+id/recyclerModel" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="?colorSecondary"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerModel"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerModel"
+            app:layout_constraintStart_toStartOf="@+id/recyclerModel" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pagerInfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerModel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

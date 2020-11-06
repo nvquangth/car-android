@@ -40,6 +40,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun onItemModelClick(model: String) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCarDetailFragment())
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCarDetailFragment(model))
     }
 }
