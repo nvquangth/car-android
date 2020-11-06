@@ -20,6 +20,9 @@ interface CarDao {
     @Query("SELECT DISTINCT Model FROM car WHERE Make = :maker")
     suspend fun getModelByMaker(maker: String): List<String>
 
+    @Query("SELECT * FROM car WHERE Model = :model")
+    suspend fun getCarByModel(model: String): List<Car>
+
     @Query("SELECT COUNT(DISTINCT Model) FROM car WHERE Make = :maker")
     fun getTotalModelByMaker(maker: String): Int
 

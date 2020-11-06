@@ -14,6 +14,8 @@ interface CarRepository {
 
     suspend fun getModelByMaker(maker: String): List<String>
 
+    suspend fun getCarByModel(model: String): Car
+
     fun getTotalModelByMaker(maker: String): Int
 
     fun findMaker(q: String): Flow<List<String>>

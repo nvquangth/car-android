@@ -18,6 +18,8 @@ class CarRepositoryImpl @Inject constructor(
 
     override suspend fun getModelByMaker(maker: String): List<String> = dao.getModelByMaker(maker)
 
+    override suspend fun getCarByModel(model: String): Car = dao.getCarByModel(model).first()
+
     override fun getTotalModelByMaker(maker: String): Int = dao.getTotalModelByMaker(maker)
 
     override fun findMaker(q: String): Flow<List<String>> = dao.findMaker(q)
