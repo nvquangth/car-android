@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import com.bt.base.exception.ToastException
 import com.bt.base.extension.parseBtException
 import com.bt.base.model.BtExceptionCode
 import com.bt.base.BR
+import com.bt.base.R
 
 abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewModel> : Fragment() {
 
@@ -28,6 +30,8 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
 
     @get:LayoutRes
     abstract val layoutRes: Int
+
+    var loadingDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,6 +71,33 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
                     }
                 }
             }
+
+            loading.observe(viewLifecycleOwner) {
+                if (it == true) {
+                    showDialogLoading()
+                } else {
+                    hideDialogLoading()
+                }
+            }
+        }
+    }
+
+    private fun showDialogLoading() {
+        MaterialAlertDialogBuilder(requireContext()).apply {
+            setView(R.layout.layout_loading)
+        }.create().apply {
+            setCancelable(false)
+            setCanceledOnTouchOutside(false)
+
+            loadingDialog = this
+
+            show()
+        }
+    }
+
+    private fun hideDialogLoading() {
+        if (loadingDialog?.isShowing == true) {
+            loadingDialog?.dismiss()
         }
     }
 
