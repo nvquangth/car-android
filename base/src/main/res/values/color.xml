@@ -22,6 +22,8 @@
     <!--color on surface (light)-->
     <color name="black_900">#000000</color>
 
+    <color name="gray_100">#F5F5F5</color>
+
     <color name="color_primary_theme_1">#EF5350</color>
     <color name="color_primary_variant_theme_1">#4268E3</color>
     <color name="color_secondary_theme_1">#50ecef</color>

@@ -172,11 +172,19 @@
     </style>
 
     <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">?attr/colorSurface</item>
+<!--        <item name="android:statusBarColor">?attr/colorSurface</item>-->
+<!--        <item name="android:windowLightStatusBar">true</item>-->
+<!--        <item name="android:navigationBarColor">?android:attr/colorBackground</item>-->
+<!--        <item name="android:windowLightNavigationBar">true</item>-->
+<!--        <item name="android:navigationBarDividerColor">?attr/colorControlHighlight</item>-->
+
+        <item name="colorPrimary">?attr/colorPrimary</item>
+        <item name="colorPrimaryVariant">?attr/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
-        <item name="android:windowLightNavigationBar">true</item>
-        <item name="android:navigationBarDividerColor">?attr/colorControlHighlight</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MyTheme.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MyTheme.Subtitle1</item>
     </style>
 
     <!--Base custom theme which will be shared between both light and dark theme variants-->

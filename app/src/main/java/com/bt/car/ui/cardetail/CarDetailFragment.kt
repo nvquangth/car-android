@@ -83,12 +83,12 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding, CarDetailViewMo
 
     private fun setupPhotoPager() {
         val urls = listOf(
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-2-60df.jpg",
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-4-0384.jpg",
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-2-60df.jpg",
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-4-0384.jpg",
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-2-60df.jpg",
-            "https://img1.oto.com.vn/2020/04/16/pTBR3JY9/gia-xe-mercedes-maybach-s600-oto-com-vn-4-0384.jpg"
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d",
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d",
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d",
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d",
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d",
+            "https://drscdn.500px.org/photo/41149196/q%3D80_m%3D2000/v2?sig=b8d6804c7b0ce82964b3208fd722c437cdc5c50d6e1c86df0a3c26da2c6efc2d"
         )
         val adapter = PhotoPagerAdapter(this, urls)
         pagerPhoto.adapter = adapter
@@ -227,7 +227,7 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding, CarDetailViewMo
 
         override fun bindView(binding: ItemInfoBinding, item: InfoItem, position: Int) {
             if (position % 2 == 0) {
-                binding.root.setBackgroundColor(Color.GRAY)
+                binding.root.setBackgroundColor(ResourcesCompat.getColor(binding.root.resources, R.color.gray_100, null))
             } else {
                 binding.root.setBackgroundColor(Color.WHITE)
             }
