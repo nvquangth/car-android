@@ -17,7 +17,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#4DFFFFFF"
             android:elevation="1dp"
             style="?attr/toolbarStyle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +30,7 @@
             android:layout_height="@dimen/dp_256"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
         <com.zhpan.indicator.IndicatorView
             android:id="@+id/pagerIndicator"

@@ -54,28 +54,34 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
 
         with(viewModel) {
             exceptionEvent.observe(viewLifecycleOwner) {
-                when (val e = it.parseBtException(requireContext())) {
-                    is AlertException -> {
-                        showAlertException(e)
-                    }
+                it.getContentIfNotHandled()?.let {
+                    when (val e = it.parseBtException(requireContext())) {
+                        is AlertException -> {
+                            showAlertException(e)
+                        }
 
-                    is SnackBarException -> {
-                        showSnackBarException(e, view)
-                    }
+                        is SnackBarException -> {
+                            showSnackBarException(e, view)
+                        }
 
-                    is DialogException -> {
-                        showDialogException(e)
-                    }
+                        is DialogException -> {
+                            showDialogException(e)
+                        }
 
-                    is ToastException -> {
+                        is ToastException -> {
+                        }
                     }
                 }
             }
 
-            loading.observe(viewLifecycleOwner) {
-                if (it == true) {
+            showLoadingEvent.observe(viewLifecycleOwner) {
+                it.getContentIfNotHandled()?.let {
                     showDialogLoading()
-                } else {
+                }
+            }
+
+            hideLoadingEvent.observe(viewLifecycleOwner) {
+                it.getContentIfNotHandled()?.let {
                     hideDialogLoading()
                 }
             }

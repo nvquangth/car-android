@@ -1,22 +1,42 @@
 package com.bt.base.ui
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bt.base.utils.SingleLiveEvent
 import com.bt.base.model.BtException
+import com.bt.base.utils.Event
 
 open class BaseViewModel : ViewModel() {
 
-    val exceptionEvent = SingleLiveEvent<BtException>()
+    private val _exceptionEvent = MutableLiveData<Event<BtException>>()
+    val exceptionEvent: LiveData<Event<BtException>>
+        get() = _exceptionEvent
 
-    val loading = SingleLiveEvent<Boolean>().apply { value = false }
+    private val _showLoadingEvent = MutableLiveData<Event<Unit>>()
+    val showLoadingEvent: LiveData<Event<Unit>>
+        get() = _showLoadingEvent
 
-    fun showLoading() {
-        if (loading.value == true) return
-        loading.postValue(true)
+    private val _hideLoadingEvent = MutableLiveData<Event<Unit>>()
+    val hideLoadingEvent: LiveData<Event<Unit>>
+        get() = _hideLoadingEvent
+
+    fun setLoading(isLoading: Boolean) {
+        if (isLoading) {
+            _showLoadingEvent.value = Event(Unit)
+        } else {
+            _hideLoadingEvent.value = Event(Unit)
+        }
     }
 
-    fun hideLoading() {
-        if (loading.value == false) return
-        loading.postValue(false)
+    fun setLoadingAsync(isLoading: Boolean) {
+        if (isLoading) {
+            _showLoadingEvent.postValue(Event(Unit))
+        } else {
+            _hideLoadingEvent.postValue(Event(Unit))
+        }
+    }
+
+    fun setExceptionAsync(exception: BtException) {
+        _exceptionEvent.postValue(Event(exception))
     }
 }

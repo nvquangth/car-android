@@ -13,8 +13,8 @@ class HomeViewModel @ViewModelInject constructor(
 ) : BaseViewModel() {
 
     val makers = liveData(dispatcher) {
-        showLoading()
+        setLoadingAsync(true)
         emit(repository.getAllMakerItem())
-        hideLoading()
+        setLoadingAsync(false)
     }
 }
