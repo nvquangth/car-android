@@ -21,16 +21,16 @@ import com.bt.base.ui.BaseRecyclerAdapter
 import com.bt.base.uikit.recycler.CenterDecoration
 import com.bt.base.uikit.recycler.CenterSnapHelper
 import com.bt.base.uikit.recycler.CenterZoomLayoutManager
-import com.bt.car.databinding.FragmentCarDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.bt.car.R
 import com.bt.car.data.model.InfoItem
+import com.bt.car.databinding.FragmentCarDetailBinding
 import com.bt.car.databinding.ItemInfoBinding
 import com.bt.car.databinding.ItemModelDetailBinding
 import com.bt.car.databinding.PagerInfoBinding
 import com.bt.car.extension.loadImageWithUrl
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_car_detail.*
 import kotlinx.android.synthetic.main.pager_info.*
 import kotlinx.android.synthetic.main.pager_photo.*
@@ -202,11 +202,13 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding, CarDetailViewMo
         }
     }
 
-    private class ModelAdapter(private val listener: ((String, Int) -> Unit)? = null) : BaseRecyclerAdapter<String, ItemModelDetailBinding>(object : DiffUtil.ItemCallback<String>() {
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+    private class ModelAdapter(private val listener: ((String, Int) -> Unit)? = null) : BaseRecyclerAdapter<String, ItemModelDetailBinding>(
+        object : DiffUtil.ItemCallback<String>() {
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
 
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
-    }) {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+        }
+    ) {
         override fun getLayoutRes(viewType: Int): Int = R.layout.item_model_detail
 
         override fun bindView(binding: ItemModelDetailBinding, item: String, position: Int) {
@@ -218,11 +220,13 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding, CarDetailViewMo
         }
     }
 
-    private class InfoAdapter : BaseRecyclerAdapter<InfoItem, ItemInfoBinding>(object : DiffUtil.ItemCallback<InfoItem>() {
-        override fun areContentsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean = oldItem == newItem
+    private class InfoAdapter : BaseRecyclerAdapter<InfoItem, ItemInfoBinding>(
+        object : DiffUtil.ItemCallback<InfoItem>() {
+            override fun areContentsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean = oldItem == newItem
 
-        override fun areItemsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean = oldItem.title == newItem.title
-    }) {
+            override fun areItemsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean = oldItem.title == newItem.title
+        }
+    ) {
         override fun getLayoutRes(viewType: Int): Int = R.layout.item_info
 
         override fun bindView(binding: ItemInfoBinding, item: InfoItem, position: Int) {

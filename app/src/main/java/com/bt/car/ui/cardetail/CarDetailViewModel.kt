@@ -1,7 +1,11 @@
 package com.bt.car.ui.cardetail
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.switchMap
+import androidx.lifecycle.viewModelScope
 import com.bt.base.ui.BaseViewModel
 import com.bt.car.anotation.IoDispatcher
 import com.bt.car.data.model.InfoItem

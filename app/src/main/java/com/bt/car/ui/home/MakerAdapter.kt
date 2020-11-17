@@ -8,9 +8,6 @@ import com.bt.car.data.model.MakerItem
 import com.bt.car.databinding.ItemMakerBinding
 import com.bt.car.databinding.ItemModelBinding
 import com.bt.car.extension.loadCircleImageWithResource
-import com.bt.car.utils.GlideApp
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.request.RequestOptions
 
 class MakerAdapter(
     private val listener: ((String) -> Unit)? = null
